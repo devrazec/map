@@ -1,0 +1,23 @@
+{
+  "name": "map",
+  "version": "1.0.0",
+  "description": "This project is a React-based interactive mapping solution designed to help companies visually display all locations where their products or services are available.",
+  "scripts": {
+    "predeploy": "echo Using existing dist folder",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devrazec/map.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devrazec/map/issues"
+  },
+  "homepage": "https://github.com/devrazec/map",
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
