@@ -61,3 +61,7 @@ Integration Options: REST APIs, CRM data import, or POS system sync
 npm init -y
 npm i -D gh-pages
 npm run deploy
+
+https://devrazec.github.io/map
+
+php -S localhost:8080
