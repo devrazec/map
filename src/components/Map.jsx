@@ -66,7 +66,7 @@ const Map = () => {
   return (
     <section className="map-section">
       <div className="map-container-wrapper">
-        <h2 className="map-heading">Interactive Map</h2>
+        <h2 className="map-heading">Multi-Location Map Interaction Platform</h2>
 
         <div className="map-card">
           <MapContainer
