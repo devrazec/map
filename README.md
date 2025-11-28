@@ -58,8 +58,29 @@ Integration Options: REST APIs, CRM data import, or POS system sync
 
 # 7. Commands
 
-npm init -y
+npm create vite@latest
+√ Project name: ... map
+√ Select a framework: » Vanilla
+√ Select a variant: » JavaScript
+ Use rolldown-vite (Experimental)?: No
+   Install with npm and start now?
+│  ● Yes / 
+
 npm i -D gh-pages
+
+  "scripts": {
+    "predeploy": "echo Using existing dist folder",
+    "deploy": "gh-pages -d dist"
+  },
+
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devrazec/map.git"
+  },
+
+   "homepage": "https://github.com/devrazec/map",
+
+
 npm run deploy
 
 https://devrazec.github.io/map
