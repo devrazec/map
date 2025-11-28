@@ -59,6 +59,7 @@ Integration Options: REST APIs, CRM data import, or POS system sync
 # 7. Commands
 
 npm create vite@latest
+
 √ Project name: ... map
 √ Select a framework: » Vanilla
 √ Select a variant: » JavaScript
