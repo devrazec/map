@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Amadora",
+    "lat": 38.7596,
+    "lng": -9.2301,
+    "image": "/img/lisbon.jpeg",
+    "link": "https://en.wikipedia.org/wiki/Amadora",
+    "color": "#ff0000"
+  },
+  {
+    "id": 2,
+    "name": "Odivelas",
+    "lat": 38.795,
+    "lng": -9.1798,
+    "image": "/img/lisbon.jpeg",
+    "link": "https://en.wikipedia.org/wiki/Odivelas",
+    "color": "#ff0000"
+  },
+  {
+    "id": 3,
+    "name": "Sacavém",
+    "lat": 38.7833,
+    "lng": -9.1094,
+    "image": "/img/lisbon.jpeg",
+    "link": "https://en.wikipedia.org/wiki/Sacav%C3%A9m",
+    "color": "#ff0000"
+  },
+  {
+    "id": 4,
+    "name": "Loures",
+    "lat": 38.8173,
+    "lng": -9.1783,
+    "image": "/img/lisbon.jpeg",
+    "link": "https://en.wikipedia.org/wiki/Loures",
+    "color": "#ff0000"
+  },
+  {
+    "id": 5,
+    "name": "Caneças",
+    "lat": 38.7965,
+    "lng": -9.2292,
+    "image": "/img/lisbon.jpeg",
+    "link": "https://en.wikipedia.org/wiki/Cane%C3%A7as",
+    "color": "#0000ff"
+  },
+  {
+    "id": 6,
+    "name": "Lisbon",
+    "lat": 38.7223,
+    "lng": -9.1393,
+    "image": "/img/lisbon.jpeg",
+    "link": "https://en.wikipedia.org/wiki/Lisbon",
+    "color": "#0000ff"
+  },
+  {
+    "id": 7,
+    "name": "Porto",
+    "lat": 41.1579,
+    "lng": -8.6291,
+    "image": "/img/porto.jpeg",
+    "link": "https://en.wikipedia.org/wiki/Porto",
+    "color": "#0000ff"
+  },
+  {
+    "id": 8,
+    "name": "Faro",
+    "lat": 37.0194,
+    "lng": -7.9322,
+    "image": "/img/faro.jpeg",
+    "link": "https://en.wikipedia.org/wiki/Faro",
+    "color": "#0000ff"
+  }
+]
