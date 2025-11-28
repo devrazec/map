@@ -1,12 +1,8 @@
-# map
+# Multi-Location Map Interaction Platform
 
-This project is a React-based interactive mapping solution designed to help companies visually display all locations where their products or services are available.
-
-Solution Description: Multi-Location Map Interaction Platform
 This project is a React-based interactive mapping solution designed to help companies visually display all locations where their products or services are available. The platform provides an intuitive map interface where users can explore store locations, service coverage areas, or distribution points in real time.
 The solution is particularly suited for businesses that operate multiple branches, retail stores, service hubs, or franchise locations, enabling them to offer customers a seamless way to discover the nearest point of service.
 Key Features
-
 
 # 1. Interactive Map Visualization
 
@@ -58,19 +54,43 @@ Integration Options: REST APIs, CRM data import, or POS system sync
 
 # 7. Commands
 
-npm create vite@latest
+````
 
-√ Project name: ... map
-√ Select a framework: » Vanilla
-√ Select a variant: » JavaScript
- Use rolldown-vite (Experimental)?: No
-   Install with npm and start now?
-│  ● Yes / 
+npx create-vite@latest . -- --template react
+
+Select a framework: React
+Select a variant: JavaScript
+Use rolldown-vite (Experimental)?: No
+Install with npm and start now? Yes
+
+npm i -S react@18 react-dom@18
+npm i -S react-router-dom
+
+npm i -S leaflet
+npm i -S leaflet-draw
+npm i -S react-leaflet@next
+npm i -S react-leaflet-cluster
+npm i -S react-leaflet-draw
+
+npm i -D prettier eslint-config-prettier eslint-plugin-prettier
 
 npm i -D gh-pages
 
+Copy files from other project
+.env
+eslint.config.js
+.prettierrc
+.prettierignore
+
+Setup package.json
+
   "scripts": {
-    "predeploy": "echo Using existing dist folder",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext js,jsx",
+    "lint:fix": "eslint . --ext js,jsx --fix",
+    "format": "prettier --write .",
     "deploy": "gh-pages -d dist"
   },
 
@@ -87,3 +107,5 @@ npm run deploy
 https://devrazec.github.io/map
 
 php -S localhost:8080
+
+````
