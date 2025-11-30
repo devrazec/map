@@ -1,10 +1,13 @@
 import React from 'react';
-import Map from '../components/Map';
+import Dashboard from '../components/Dashboard';
 
 export function Home() {
   return (
     <>
-      <Map />
+      <Dashboard />
+     
+      
+
     </>
   );
 }

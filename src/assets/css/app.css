@@ -1,0 +1,40 @@
+/* Bootstrap + AOS enhanced blinking marker */
+
+.marker-circle {
+  width: 1rem;                 /* Bootstrap-friendly sizing */
+  height: 1rem;
+  border-radius: 50%;
+  border: 2px solid var(--bs-white); /* Use Bootstrap variable */
+  animation: blink 1s infinite ease-in-out;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.25); /* Subtle Bootstrap-like shadow */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth hover */
+}
+
+/* Hover effect to match Bootstrap interaction style */
+.marker-circle:hover {
+  transform: scale(1.3);
+  opacity: 0.85;
+}
+
+/* Blinking animation */
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.6);
+  }
+}
+
+/* AOS integration: ensures marker fades + zooms when appearing */
+[data-aos="marker-fade"] {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+[data-aos="marker-fade"].aos-animate {
+  opacity: 1;
+  transform: scale(1);
+}

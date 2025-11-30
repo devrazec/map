@@ -76,6 +76,14 @@ npm i -D prettier eslint-config-prettier eslint-plugin-prettier
 
 npm i -D gh-pages
 
+npm i -S aos
+npm i -S bootstrap
+npm i -S bootstrap-icons
+npm i -S reactstrap
+
+
+npm i -S @vis.gl/react-google-maps
+
 Copy files from other project
 .env
 eslint.config.js
@@ -109,3 +117,23 @@ https://devrazec.github.io/map
 php -S localhost:8080
 
 ````
+
+## Web Interface
+
+http://localhost:3000
+
+![Pic3](./src/assets/img/pic1.png)
+
+## Links
+
+Credentials compatible with this API
+https://console.cloud.google.com/google/maps-apis/credentials?project=react-462614
+
+Collection of React components @vis.gl/react-google-maps 
+https://visgl.github.io/react-google-maps/docs/get-started
+
+Example creates circles on the map
+https://developers.google.com/maps/documentation/javascript/examples/circle-simple?hl=en
+
+React UI Library
+https://reactstrap.github.io/?path=/docs/home-installation--page

@@ -49,7 +49,7 @@
     "name": "Lisbon",
     "lat": 38.7223,
     "lng": -9.1393,
-    "image": "/map/img/lisbon.jpeg",
+    "image": "/img/lisbon.jpeg",
     "link": "https://en.wikipedia.org/wiki/Lisbon",
     "color": "#0000ff"
   },

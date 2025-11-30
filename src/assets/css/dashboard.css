@@ -1,0 +1,26 @@
+.dashboard {
+  display: flex;
+  height: 100vh;
+  background: #f8f9fa;
+}
+
+.dashboard.dark-mode {
+  background: #111;
+  color: white;
+}
+
+.sidebar {
+  width: 200px;
+  min-width: 200px;
+  height: 100%;
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  background: inherit;
+}
+
+.content-wrapper {
+  background: inherit;
+}
