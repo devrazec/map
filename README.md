@@ -81,7 +81,6 @@ npm i -S bootstrap
 npm i -S bootstrap-icons
 npm i -S reactstrap
 
-
 npm i -S @vis.gl/react-google-maps
 
 Copy files from other project
@@ -109,20 +108,12 @@ Setup package.json
 
    "homepage": "https://github.com/devrazec/map",
 
-
+npm run build
 npm run deploy
-
-https://devrazec.github.io/map
 
 php -S localhost:8080
 
 ````
-
-## Web Interface
-
-http://localhost:3000
-
-![Pic3](./src/assets/img/pic1.png)
 
 ## Links
 
@@ -146,3 +137,13 @@ git rm --cached .env
 git commit -m "Stop tracking .env file"
 3. Push to remote:
 git push
+
+## Web Interface
+
+http://localhost:3000
+
+![Pic3](./src/assets/img/pic1.png)
+
+## Demo
+
+https://devrazec.github.io/map
