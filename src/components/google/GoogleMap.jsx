@@ -27,7 +27,7 @@ const GoogleMap = () => {
       </div>
       <APIProvider apiKey={API_KEY} libraries={['drawing']}>
         <Map
-          style={{ width: "100%", height: "80vh", fillColor: '#f1c40f', }}
+          style={{ width: "100%", height: "80vh" }}
           defaultCenter={{ lat: 39.3999, lng: -8.2245 }}
           defaultZoom={7}
           gestureHandling="greedy"
@@ -96,6 +96,7 @@ const GoogleMap = () => {
         
 
           <PortugalHighlight />
+      
 
 
           <MyLocationControl />

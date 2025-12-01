@@ -15,7 +15,7 @@ const CardsSection = ({ darkMode }) => {
                 <Card style={cardStyle} className="shadow-sm mb-4">
                     <CardBody>
 
-                        <LeafletMap />
+                     
 
                     </CardBody>
                 </Card>

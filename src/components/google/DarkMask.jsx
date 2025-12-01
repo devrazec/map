@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useMap } from "@vis.gl/react-google-maps";
+import portugalJson from "../../data/portugal.json";
 
 const WORLD_OUTER_RING = [
   [-90, -180],
@@ -9,7 +10,15 @@ const WORLD_OUTER_RING = [
   [-90, -180],
 ];
 
-
+function ensureCCW(ring) {
+  let sum = 0;
+  for (let i = 0; i < ring.length - 1; i++) {
+    const [x1, y1] = ring[i];
+    const [x2, y2] = ring[i + 1];
+    sum += (x2 - x1) * (y2 + y1);
+  }
+  return sum > 0 ? ring : ring.slice().reverse();
+}
 
 export default function DarkMask() {
   const map = useMap();
@@ -19,28 +28,33 @@ export default function DarkMask() {
 
     const maskData = new google.maps.Data({ map });
 
+    const portugalHoles = [];
 
+    portugalJson.features.forEach((feature) => {
+      const geom = feature.geometry;
+      if (!geom) return;
 
+      if (geom.type === "Polygon") {
+        const ring = geom.coordinates[0];
+        portugalHoles.push(ensureCCW(ring));
+      }
 
+      if (geom.type === "MultiPolygon") {
+        geom.coordinates.forEach((poly) => {
+          const ring = poly[0];
+          portugalHoles.push(ensureCCW(ring));
+        });
+      }
+    });
 
     // World polygon with Portugal holes
     const maskFeature = {
       type: "Feature",
       geometry: {
         type: "Polygon",
-        coordinates: [WORLD_OUTER_RING],
+        coordinates: [WORLD_OUTER_RING, ...portugalHoles],
       },
     };
-
-    const border = new google.maps.Data({ map });
-    border.addGeoJson(portugalJson);
-    border.setStyle({
-      fillOpacity: 0,
-      strokeColor: "#42a5f5",
-      strokeWeight: 2,
-      clickable: false,
-      zIndex: 9999,
-    });
 
     maskData.addGeoJson(maskFeature);
 
