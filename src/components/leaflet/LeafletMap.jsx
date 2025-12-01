@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-draw/dist/leaflet.draw.css';
 
 import markersJson from '../../data/markers.json';
-import portugalJson from '../../data/portugal.json';
 
 import ResetView from './ResetView';
 import ShowMyLocation from './ShowMyLocation';
 import RegionSelector from './RegionSelector';
 import PolygonEditor from './PolygonEditor';
+import MaskLayer from './MaskLayer';
 
 import L from 'leaflet';
 
@@ -18,7 +18,6 @@ const INITIAL_ZOOM = 7;
 
 const LeafletMap = () => {
   const [markers, setMarkers] = useState([]);
-  const [portugalGeo, setPortugalGeo] = useState(null);
 
   const regions = {
     All: L.latLngBounds([
@@ -41,12 +40,7 @@ const LeafletMap = () => {
 
   useEffect(() => {
     setMarkers(markersJson);
-    setPortugalGeo(portugalJson);
   }, []);
-
-  const handlePolygonChange = geojson => {
-    console.log('Polygon GeoJSON:', geojson);
-  };
 
   const createBlinkIcon = (color = '#ff0000') => {
     return L.divIcon({
@@ -79,20 +73,7 @@ const LeafletMap = () => {
             <ResetView center={[ 39.3999, -8.2245]} zoom={7} />
             <ShowMyLocation />
             <RegionSelector regions={regions} />
-            <PolygonEditor onChange={handlePolygonChange} />
-
-            {/* Portugal outline */}
-            {portugalGeo && (
-              <GeoJSON
-                data={portugalGeo}
-                style={{
-                  //color: '#d35400',
-                  weight: 2,
-                  fillColor: '#f1c40f',
-                  fillOpacity: 0.15,
-                }}
-              />
-            )}
+            <PolygonEditor />
 
             {/* Markers */}
             {markers.map(m => (
@@ -137,6 +118,9 @@ const LeafletMap = () => {
 
               </Marker>
             ))}
+
+            <MaskLayer />
+
           </MapContainer>
         </div>
       </div>

@@ -3,13 +3,11 @@ import { APIProvider, Map, InfoWindow, AdvancedMarker, useMap } from "@vis.gl/re
 import markersJson from "../../data/markers.json";
 import portugalJson from '../../data/portugal.json';
 
-import PortugalHighlight from './PortugalHighlight';
-//import DarkMask from './DarkMask';
 import MyLocationControl from './MyLocationControl';
 import ResetZoomControl from './ResetZoomControl';
 import PolygonControl from './PolygonControl';
 import CityFilterControl from './CityFilterControl';
-import DarkMask from './DarkMask';
+import MaskLayer from './MaskLayer';
 
 const GoogleMap = () => {
   const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
@@ -32,6 +30,17 @@ const GoogleMap = () => {
           defaultZoom={7}
           gestureHandling="greedy"
           mapId={import.meta.env.VITE_GOOGLE_MAP_ID}
+          options={{
+            zoomControl: true,       // enable zoom buttons
+            streetViewControl: true,
+            mapTypeControl: false,
+            fullscreenControl: true,
+            scaleControl: false,
+            rotateControl: false,
+            keyboardShortcuts: false,
+            clickableIcons: false,
+            scrollwheel: true,
+          }}
         >
           {/* CSS Blinking Circle Markers */}
           {markersJson.map((m) => (
@@ -93,10 +102,10 @@ const GoogleMap = () => {
               )
           )}
 
-        
 
-          <PortugalHighlight />
-      
+
+          <MaskLayer />
+
 
 
           <MyLocationControl />
