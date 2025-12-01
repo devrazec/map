@@ -70,7 +70,7 @@ const LeafletMap = () => {
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
             {/* Controls */}
-            <ResetView center={[ 39.3999, -8.2245]} zoom={7} />
+            <ResetView center={[39.3999, -8.2245]} zoom={7} />
             <ShowMyLocation />
             <RegionSelector regions={regions} />
             <PolygonEditor />
@@ -115,12 +115,10 @@ const LeafletMap = () => {
                     </div>
                   </div>
                 </Popup>
-
               </Marker>
             ))}
 
             <MaskLayer />
-
           </MapContainer>
         </div>
       </div>
@@ -129,4 +127,3 @@ const LeafletMap = () => {
 };
 
 export default React.memo(LeafletMap);
-

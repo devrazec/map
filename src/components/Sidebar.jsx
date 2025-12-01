@@ -1,5 +1,5 @@
-import React from "react";
-import { Nav, NavItem, NavLink } from "reactstrap";
+import React from 'react';
+import { Nav, NavItem, NavLink } from 'reactstrap';
 
 const Sidebar = () => {
   return (
@@ -18,7 +18,6 @@ const Sidebar = () => {
             <i className="bi bi-map-fill me-2"></i> Google Map API
           </NavLink>
         </NavItem>
-
       </Nav>
     </div>
   );

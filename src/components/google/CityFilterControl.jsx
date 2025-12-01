@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useMap } from "@vis.gl/react-google-maps";
+import { useEffect } from 'react';
+import { useMap } from '@vis.gl/react-google-maps';
 
 const CityFilterControl = ({ onSelect }) => {
   const map = useMap();
@@ -8,7 +8,7 @@ const CityFilterControl = ({ onSelect }) => {
   const regions = {
     All: new google.maps.LatLngBounds(
       new google.maps.LatLng(37.0, -9.5), // SW
-      new google.maps.LatLng(41.2, -7.5)  // NE
+      new google.maps.LatLng(41.2, -7.5) // NE
     ),
     Lisbon: new google.maps.LatLngBounds(
       new google.maps.LatLng(38.69, -9.25),
@@ -25,36 +25,36 @@ const CityFilterControl = ({ onSelect }) => {
   };
 
   const cities = [
-    { label: "All", value: "All" },
-    { label: "Lisbon", value: "Lisbon" },
-    { label: "Porto", value: "Porto" },
-    { label: "Faro", value: "Faro" },
+    { label: 'All', value: 'All' },
+    { label: 'Lisbon', value: 'Lisbon' },
+    { label: 'Porto', value: 'Porto' },
+    { label: 'Faro', value: 'Faro' },
   ];
 
   useEffect(() => {
     if (!map) return;
 
-    const select = document.createElement("select");
+    const select = document.createElement('select');
 
     // Button-like CSS for the dropdown
-    select.style.background = "#fff";
-    select.style.border = "2px solid #fff";
-    select.style.borderRadius = "3px";
-    select.style.boxShadow = "0 2px 6px rgba(0,0,0,0.3)";
-    select.style.cursor = "pointer";
-    select.style.margin = "10px";
-    select.style.padding = "6px 12px";
-    select.style.fontSize = "18px";
-    select.style.fontFamily = "Roboto, Arial, sans-serif";
+    select.style.background = '#fff';
+    select.style.border = '2px solid #fff';
+    select.style.borderRadius = '3px';
+    select.style.boxShadow = '0 2px 6px rgba(0,0,0,0.3)';
+    select.style.cursor = 'pointer';
+    select.style.margin = '10px';
+    select.style.padding = '6px 12px';
+    select.style.fontSize = '18px';
+    select.style.fontFamily = 'Roboto, Arial, sans-serif';
 
-    cities.forEach((c) => {
-      const opt = document.createElement("option");
+    cities.forEach(c => {
+      const opt = document.createElement('option');
       opt.value = c.value;
       opt.textContent = c.label;
       select.appendChild(opt);
     });
 
-    select.onchange = (e) => {
+    select.onchange = e => {
       const city = e.target.value;
 
       if (city && regions[city]) {

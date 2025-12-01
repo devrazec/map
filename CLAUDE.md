@@ -9,6 +9,7 @@ This is a React-based interactive mapping platform that enables businesses to di
 ## Development Commands
 
 ### Running the Application
+
 ```bash
 npm run dev              # Start Vite dev server (default: http://localhost:5173)
 npm run build            # Build for production
@@ -16,6 +17,7 @@ npm run preview          # Preview production build locally
 ```
 
 ### Code Quality
+
 ```bash
 npm run lint             # Run ESLint on .js and .jsx files
 npm run lint:fix         # Auto-fix ESLint issues
@@ -23,6 +25,7 @@ npm run format           # Format code with Prettier
 ```
 
 ### Deployment
+
 ```bash
 npm run deploy           # Deploy to GitHub Pages using gh-pages
 ```
@@ -60,6 +63,7 @@ App.jsx (routes)
 Both map implementations follow a similar pattern with custom control components:
 
 **Google Maps Controls:**
+
 - `MyLocationControl` - Geolocation button
 - `ResetZoomControl` - Reset to default view
 - `PolygonControl` - Drawing and editing polygons
@@ -68,6 +72,7 @@ Both map implementations follow a similar pattern with custom control components
 - `DarkMask` - Dim areas outside region of interest
 
 **Leaflet Controls:**
+
 - `ShowMyLocation` - Geolocation button
 - `ResetView` - Reset to default view
 - `PolygonEditor` - Drawing and editing polygons using leaflet-draw
@@ -77,6 +82,7 @@ Both map implementations follow a similar pattern with custom control components
 ### Data Structure
 
 **Markers** (`src/data/markers.json`):
+
 ```json
 [
   {
@@ -92,6 +98,7 @@ Both map implementations follow a similar pattern with custom control components
 ```
 
 **GeoJSON Files** (`src/data/`):
+
 - `portugal.json` - Portugal country boundary
 - `brazil.json` - Brazil country boundary
 - `world.json` - World boundaries
@@ -110,6 +117,7 @@ Both map implementations follow a similar pattern with custom control components
 ### Map Marker Styling
 
 Both implementations use CSS-based blinking circle markers defined in `app.css`:
+
 ```css
 .marker-circle {
   animation: blink 1.5s infinite;
@@ -123,6 +131,7 @@ Dark mode is managed via state in `Dashboard.jsx` and passed down to child compo
 ## Environment Variables
 
 Required in `.env` file:
+
 - `VITE_GOOGLE_MAPS_API_KEY` - Google Maps API key
 - `VITE_GOOGLE_MAP_ID` - Google Cloud Map ID (for advanced features)
 
@@ -138,6 +147,7 @@ Note: The `.env` file contains placeholder values for unused Kinde auth and Stri
 ## Routing
 
 Uses React Router v7 with the following routes:
+
 - `/` - Home page (main map interface)
 - `/map` - Alias for home page
 - `/notfound` - 404 page
@@ -148,6 +158,7 @@ Uses React Router v7 with the following routes:
 ### Google Maps Drawing Integration
 
 The `PolygonControl` component demonstrates advanced Google Maps usage:
+
 1. Creates a mask overlay to dim areas outside Portugal
 2. Implements custom drawing controls in the TOP_LEFT control position
 3. Provides editable polygons with real-time GeoJSON conversion
@@ -172,6 +183,7 @@ Both map implementations can overlay country boundaries using GeoJSON files. The
 ## Testing Strategy
 
 No automated tests are currently configured. Manual testing should cover:
+
 - Both map implementations render correctly
 - All control buttons function as expected
 - Polygon drawing and editing works on both maps

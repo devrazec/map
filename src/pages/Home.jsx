@@ -5,9 +5,6 @@ export function Home() {
   return (
     <>
       <Dashboard />
-     
-      
-
     </>
   );
 }

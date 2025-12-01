@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import { useMap } from "react-leaflet";
-import L from "leaflet";
-import portugalGeo from "../../data/portugal.json";
+import { useEffect } from 'react';
+import { useMap } from 'react-leaflet';
+import L from 'leaflet';
+import portugalGeo from '../../data/portugal.json';
 
 const MaskLayer = () => {
   const map = useMap();
@@ -13,30 +13,30 @@ const MaskLayer = () => {
 
     const polygons = [];
 
-    if (geom.type === "Polygon") {
+    if (geom.type === 'Polygon') {
       // Single polygon (mainland)
       const coords = geom.coordinates[0].map(([lng, lat]) => [lat, lng]);
       polygons.push(coords);
-    } else if (geom.type === "MultiPolygon") {
+    } else if (geom.type === 'MultiPolygon') {
       // Mainland + islands
-      geom.coordinates.forEach((poly) => {
+      geom.coordinates.forEach(poly => {
         const coords = poly[0].map(([lng, lat]) => [lat, lng]);
         polygons.push(coords);
       });
     }
 
     // Draw polygons
-    const leafletPolygons = polygons.map((coords) =>
+    const leafletPolygons = polygons.map(coords =>
       L.polygon(coords, {
-        color: "#00BFFF",     // border color
+        color: '#00BFFF', // border color
         weight: 3,
-        fillColor: "#00BFFF", // fill color
-        fillOpacity: 0.25     // soft highlight
+        fillColor: '#00BFFF', // fill color
+        fillOpacity: 0.25, // soft highlight
       }).addTo(map)
     );
 
     return () => {
-      leafletPolygons.forEach((poly) => map.removeLayer(poly));
+      leafletPolygons.forEach(poly => map.removeLayer(poly));
     };
   }, [map]);
 

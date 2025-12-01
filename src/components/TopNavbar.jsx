@@ -1,13 +1,21 @@
-import React from "react";
-import { Navbar, NavbarBrand, Button } from "reactstrap";
+import React from 'react';
+import { Navbar, NavbarBrand, Button } from 'reactstrap';
 
 const TopNavbar = ({ darkMode, setDarkMode }) => {
   return (
-    <Navbar className="px-3 shadow-sm" color={darkMode ? "dark" : "light"} light={!darkMode} dark={darkMode}>
-      <NavbarBrand href="/">Multi-Location Maps Platform - Interact with markers, regions, and polygons on this enhanced Maps.</NavbarBrand>
+    <Navbar
+      className="px-3 shadow-sm"
+      color={darkMode ? 'dark' : 'light'}
+      light={!darkMode}
+      dark={darkMode}
+    >
+      <NavbarBrand href="/">
+        Multi-Location Maps Platform - Interact with markers, regions, and
+        polygons on this enhanced Maps.
+      </NavbarBrand>
 
       <Button
-        color={darkMode ? "secondary" : "dark"}
+        color={darkMode ? 'secondary' : 'dark'}
         onClick={() => setDarkMode(!darkMode)}
       >
         {darkMode ? (

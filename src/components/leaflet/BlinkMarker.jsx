@@ -3,10 +3,10 @@ import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 
 // Blinking Icon
-const createBlinkIcon = (color) => {
+const createBlinkIcon = color => {
   return L.divIcon({
     className: 'blinking-marker',
-    html: `<div class="marker-circle" style="background-color: ${color}"></div>` ,
+    html: `<div class="marker-circle" style="background-color: ${color}"></div>`,
     iconSize: [16, 16],
     iconAnchor: [8, 8],
   });
@@ -15,7 +15,7 @@ const createBlinkIcon = (color) => {
 const BlinkingMarkers = ({ markers }) => {
   return (
     <>
-      {markers.map((m) => {
+      {markers.map(m => {
         const color = m.color || '#ff0000';
         return (
           <Marker
@@ -24,7 +24,11 @@ const BlinkingMarkers = ({ markers }) => {
             icon={createBlinkIcon(color)}
           >
             <Popup>
-              <div className="card border-0" data-aos="zoom-in" style={{ width: '14rem' }}>
+              <div
+                className="card border-0"
+                data-aos="zoom-in"
+                style={{ width: '14rem' }}
+              >
                 <img
                   src={m.image}
                   alt={m.name}

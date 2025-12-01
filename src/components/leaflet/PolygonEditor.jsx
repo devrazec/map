@@ -31,7 +31,7 @@ const PolygonEditor = ({ onChange }) => {
     map.addControl(drawControl);
 
     // Handle polygon creation
-    map.on(L.Draw.Event.CREATED, (event) => {
+    map.on(L.Draw.Event.CREATED, event => {
       // Remove any existing polygon
       drawnItems.clearLayers();
 
@@ -44,8 +44,8 @@ const PolygonEditor = ({ onChange }) => {
     });
 
     // Handle polygon editing
-    map.on(L.Draw.Event.EDITED, (event) => {
-      event.layers.eachLayer((layer) => {
+    map.on(L.Draw.Event.EDITED, event => {
+      event.layers.eachLayer(layer => {
         map.fitBounds(layer.getBounds(), { animate: true });
 
         if (onChange) onChange(layer.toGeoJSON());

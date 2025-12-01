@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-import { useMap } from "@vis.gl/react-google-maps";
-import portugalGeo from "../../data/portugal.json";
+import { useEffect } from 'react';
+import { useMap } from '@vis.gl/react-google-maps';
+import portugalGeo from '../../data/portugal.json';
 
 const MaskLayer = () => {
   const map = useMap();
@@ -12,19 +12,19 @@ const MaskLayer = () => {
 
     const polygons = [];
 
-    if (geom.type === "Polygon") {
+    if (geom.type === 'Polygon') {
       // Single polygon (only mainland)
       const coords = geom.coordinates[0].map(([lng, lat]) => ({
         lat,
-        lng
+        lng,
       }));
       polygons.push(coords);
-    } else if (geom.type === "MultiPolygon") {
+    } else if (geom.type === 'MultiPolygon') {
       // Mainland + islands
-      geom.coordinates.forEach((poly) => {
+      geom.coordinates.forEach(poly => {
         const coords = poly[0].map(([lng, lat]) => ({
           lat,
-          lng
+          lng,
         }));
         polygons.push(coords);
       });
@@ -32,11 +32,11 @@ const MaskLayer = () => {
 
     const highlight = new google.maps.Polygon({
       paths: polygons,
-      strokeColor: "#00BFFF",      // border color
+      strokeColor: '#00BFFF', // border color
       strokeWeight: 3,
-      fillColor: "#00BFFF",
-      fillOpacity: 0.25,           // soft highlight
-      map
+      fillColor: '#00BFFF',
+      fillOpacity: 0.25, // soft highlight
+      map,
     });
 
     return () => highlight.setMap(null);
@@ -46,4 +46,3 @@ const MaskLayer = () => {
 };
 
 export default MaskLayer;
-
