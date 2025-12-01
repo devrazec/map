@@ -137,3 +137,12 @@ https://developers.google.com/maps/documentation/javascript/examples/circle-simp
 
 React UI Library
 https://reactstrap.github.io/?path=/docs/home-installation--page
+
+## Github
+
+1. Remove it from git tracking (but keep the local file):
+git rm --cached .env
+2. Commit this change:
+git commit -m "Stop tracking .env file"
+3. Push to remote:
+git push
