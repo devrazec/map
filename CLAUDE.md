@@ -66,10 +66,9 @@ Both map implementations follow a similar pattern with custom control components
 
 - `MyLocationControl` - Geolocation button
 - `ResetZoomControl` - Reset to default view
-- `PolygonControl` - Drawing and editing polygons
+- `PolygonControl` - Drawing and editing polygons with mask overlay
 - `CityFilterControl` - Filter markers by city
-- `PortugalHighlight` - Display country boundary with mask overlay
-- `DarkMask` - Dim areas outside region of interest
+- `MaskLayer` - Display country boundary with dim overlay outside region
 
 **Leaflet Controls:**
 
@@ -77,6 +76,7 @@ Both map implementations follow a similar pattern with custom control components
 - `ResetView` - Reset to default view
 - `PolygonEditor` - Drawing and editing polygons using leaflet-draw
 - `RegionSelector` - Predefined region bounds (Lisbon, Porto, Faro)
+- `MaskLayer` - Display country boundary with dim overlay outside region
 - `BlinkMarker` - Custom blinking marker component
 
 ### Data Structure
@@ -100,8 +100,6 @@ Both map implementations follow a similar pattern with custom control components
 **GeoJSON Files** (`src/data/`):
 
 - `portugal.json` - Portugal country boundary
-- `brazil.json` - Brazil country boundary
-- `world.json` - World boundaries
 
 ### Styling Approach
 
@@ -177,7 +175,7 @@ Both map implementations can overlay country boundaries using GeoJSON files. The
 1. **Google Maps API**: The `drawing` library must be included in the `libraries` prop of `APIProvider`
 2. **Map Controls**: Google Maps custom controls must be cleaned up in useEffect return to prevent memory leaks
 3. **Marker Colors**: Both implementations support per-marker color customization via the `color` property in markers.json
-4. **Vite Config**: The `base` property is commented out - uncomment and set to `/map` when deploying to GitHub Pages subdirectory
+4. **Vite Config**: The `base` property is set to `/map` for GitHub Pages deployment - change this if deploying to a different path
 5. **React Version**: Currently uses React 19 - ensure compatibility when adding new dependencies
 
 ## Testing Strategy
