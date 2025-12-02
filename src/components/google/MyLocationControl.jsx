@@ -1,9 +1,14 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useContext } from 'react';
 import { useMap } from '@vis.gl/react-google-maps';
+import { GlobalContext } from '../../context/GlobalContext';
 
 const MyLocationControl = () => {
   const map = useMap();
   const userMarkerRef = useRef(null);
+
+  const {
+    darkMode, setDarkMode,
+  } = useContext(GlobalContext);
 
   useEffect(() => {
     if (!map) return;
@@ -17,7 +22,7 @@ const MyLocationControl = () => {
     controlButton.style.alignItems = 'center';
     controlButton.style.justifyContent = 'center';
     controlButton.style.fontSize = '20px';
-    controlButton.style.background = '#fff';
+    controlButton.style.background = darkMode ? '#222' : '#fff';
     controlButton.style.border = '2px solid #fff';
     controlButton.style.borderRadius = '3px';
     controlButton.style.boxShadow = '0 2px 6px rgba(0,0,0,0.3)';

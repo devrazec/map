@@ -1,9 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { useMap } from '@vis.gl/react-google-maps';
-import portugalGeo from '../../data/portugal.json';
+import { GlobalContext } from '../../context/GlobalContext';
 
 const MaskLayer = () => {
   const map = useMap();
+
+  const {
+    darkMode, setDarkMode,
+    portugalGeo, setPortugalGeo,
+  } = useContext(GlobalContext);
 
   useEffect(() => {
     if (!map) return;

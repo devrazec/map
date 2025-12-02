@@ -1,6 +1,7 @@
 import { useMap } from 'react-leaflet';
 import L from 'leaflet';
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
+import { GlobalContext } from '../../context/GlobalContext';
 
 const ResetView = ({ center, zoom }) => {
   const map = useMap();

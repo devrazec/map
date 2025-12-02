@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 //import Sidebar from "./Sidebar";
 import TopNavbar from './TopNavbar';
 import CardsSection from './CardsSection';
+import { GlobalContext } from '../context/GlobalContext';
 
 import '../assets/css/dashboard.css'; // optional css for layout
 
 const Dashboard = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  
+  const { darkMode, setDarkMode } = useContext(GlobalContext);
 
   return (
     <div className={darkMode ? 'dashboard dark-mode' : 'dashboard'}>

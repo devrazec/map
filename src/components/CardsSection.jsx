@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Row, Col, Card, CardBody, CardTitle } from 'reactstrap';
 import LeafletMap from './leaflet/LeafletMap';
 import GoogleMap from './google/GoogleMap';
+import { GlobalContext } from '../context/GlobalContext';
 
-const CardsSection = ({ darkMode }) => {
+const CardsSection = () => {
+
+  const { darkMode, setDarkMode } = useContext(GlobalContext);
+
   const cardStyle = darkMode ? { background: '#222', color: '#fff' } : {};
 
   return (

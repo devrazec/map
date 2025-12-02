@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-draw/dist/leaflet.draw.css';
-
-import markersJson from '../../data/markers.json';
 
 import ResetView from './ResetView';
 import ShowMyLocation from './ShowMyLocation';
@@ -11,13 +9,14 @@ import RegionSelector from './RegionSelector';
 import PolygonEditor from './PolygonEditor';
 import MaskLayer from './MaskLayer';
 
+import { GlobalContext } from '../../context/GlobalContext';
+
 import L from 'leaflet';
 
 const INITIAL_CENTER = [39.5, -8];
 const INITIAL_ZOOM = 7;
 
 const LeafletMap = () => {
-  const [markers, setMarkers] = useState([]);
 
   const regions = {
     All: L.latLngBounds([
@@ -38,9 +37,13 @@ const LeafletMap = () => {
     ]),
   };
 
-  useEffect(() => {
-    setMarkers(markersJson);
-  }, []);
+  const {
+    darkMode, setDarkMode,
+    markers, setMarkers
+
+  } = useContext(GlobalContext);
+
+  const cardStyle = darkMode ? { background: '#222', color: '#fff' } : {};
 
   const createBlinkIcon = (color = '#ff0000') => {
     return L.divIcon({
@@ -54,7 +57,7 @@ const LeafletMap = () => {
   return (
     <div className="container">
       <div className="text-center mb-4" data-aos="fade-up">
-        <p className="text-muted">Leaflet Maps</p>
+        <p style={cardStyle}>Leaflet Maps</p>
       </div>
 
       <div className="card shadow border-0">

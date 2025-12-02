@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { useMap } from 'react-leaflet';
 import L from 'leaflet';
 import portugalGeo from '../../data/portugal.json';
+import { GlobalContext } from '../../context/GlobalContext';
 
 const MaskLayer = () => {
   const map = useMap();

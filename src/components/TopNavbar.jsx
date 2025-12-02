@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Navbar, NavbarBrand, Button } from 'reactstrap';
+import { GlobalContext } from '../context/GlobalContext';
 
-const TopNavbar = ({ darkMode, setDarkMode }) => {
+const TopNavbar = () => {
+
+    const { darkMode, setDarkMode } = useContext(GlobalContext);
+  
   return (
     <Navbar
       className="px-3 shadow-sm"

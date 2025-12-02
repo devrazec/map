@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   APIProvider,
   Map,
@@ -6,14 +6,13 @@ import {
   AdvancedMarker,
   useMap,
 } from '@vis.gl/react-google-maps';
-import markersJson from '../../data/markers.json';
-import portugalJson from '../../data/portugal.json';
 
 import MyLocationControl from './MyLocationControl';
 import ResetZoomControl from './ResetZoomControl';
 import PolygonControl from './PolygonControl';
 import CityFilterControl from './CityFilterControl';
 import MaskLayer from './MaskLayer';
+import { GlobalContext } from '../../context/GlobalContext';
 
 const GoogleMap = () => {
   const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
@@ -23,10 +22,18 @@ const GoogleMap = () => {
     setActiveMarker(id);
   };
 
+  const {
+    darkMode, setDarkMode,
+    markers, setMarkers,
+    portugalGeo, setPortugalGeo,
+  } = useContext(GlobalContext);
+
+  const cardStyle = darkMode ? { background: '#222', color: '#fff' } : {};
+
   return (
     <div className="container">
       <div className="text-center mb-4" data-aos="fade-up">
-        <p className="text-muted">Google Maps API</p>
+        <p style={cardStyle}>Google Maps API</p>
       </div>
       <APIProvider apiKey={API_KEY} libraries={['drawing']}>
         <Map
@@ -48,7 +55,7 @@ const GoogleMap = () => {
           }}
         >
           {/* CSS Blinking Circle Markers */}
-          {markersJson.map(m => (
+          {markers.map(m => (
             <AdvancedMarker
               key={m.id}
               position={{ lat: m.lat, lng: m.lng }}
@@ -64,7 +71,7 @@ const GoogleMap = () => {
           ))}
 
           {/* InfoWindows */}
-          {markersJson.map(
+          {markers.map(
             m =>
               activeMarker === m.id && (
                 <InfoWindow

@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { useMap } from '@vis.gl/react-google-maps';
+import { GlobalContext } from '../../context/GlobalContext';
 
 const CityFilterControl = ({ onSelect }) => {
   const map = useMap();
@@ -31,16 +32,21 @@ const CityFilterControl = ({ onSelect }) => {
     { label: 'Faro', value: 'Faro' },
   ];
 
+  const {
+    darkMode, setDarkMode,
+  } = useContext(GlobalContext);
+
   useEffect(() => {
     if (!map) return;
 
     const select = document.createElement('select');
 
     // Button-like CSS for the dropdown
-    select.style.background = '#fff';
-    select.style.border = '2px solid #fff';
-    select.style.borderRadius = '3px';
-    select.style.boxShadow = '0 2px 6px rgba(0,0,0,0.3)';
+    //select.style.background = darkMode ? '#222' : '#fff';
+    //select.style.color = darkMode ? '#eee' : '#000';
+    //select.style.border = darkMode ? '2px solid #444' : '2px solid #fff';
+    //select.style.borderRadius = '3px';
+    //select.style.boxShadow = '0 2px 6px rgba(0,0,0,0.3)';
     select.style.cursor = 'pointer';
     select.style.margin = '10px';
     select.style.padding = '6px 12px';

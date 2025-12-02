@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
+import { GlobalContext } from '../../context/GlobalContext';
 
 // Blinking Icon
 const createBlinkIcon = color => {

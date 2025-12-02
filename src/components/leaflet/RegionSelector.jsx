@@ -1,6 +1,7 @@
 import { useMap } from 'react-leaflet';
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import L from 'leaflet';
+import { GlobalContext } from '../../context/GlobalContext';
 
 const RegionSelector = ({ regions }) => {
   const map = useMap();

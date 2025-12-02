@@ -1,11 +1,16 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { useMap } from '@vis.gl/react-google-maps';
+import { GlobalContext } from '../../context/GlobalContext';
 
 const ResetZoomControl = ({
   defaultCenter = { lat: 39.3999, lng: -8.2245 }, // Center of Portugal
   defaultZoom = 7,
 }) => {
   const map = useMap();
+
+  const {
+    darkMode, setDarkMode,
+  } = useContext(GlobalContext);
 
   useEffect(() => {
     if (!map) return;
@@ -19,8 +24,9 @@ const ResetZoomControl = ({
     controlButton.style.justifyContent = 'center';
     controlButton.style.fontSize = '20px';
 
-    controlButton.style.background = '#fff';
-    controlButton.style.border = '2px solid #fff';
+    controlButton.style.background = darkMode ? '#222' : '#fff';
+    controlButton.style.color = darkMode ? '#eee' : '#000';
+    controlButton.style.border = darkMode ? '2px solid #444' : '2px solid #fff';
     controlButton.style.borderRadius = '3px';
     controlButton.style.boxShadow = '0 2px 6px rgba(0,0,0,0.3)';
     controlButton.style.cursor = 'pointer';

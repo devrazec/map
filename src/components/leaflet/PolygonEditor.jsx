@@ -1,8 +1,9 @@
 // PolygonEditor.jsx
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet-draw';
+import { GlobalContext } from '../../context/GlobalContext';
 
 const PolygonEditor = ({ onChange }) => {
   const map = useMap();

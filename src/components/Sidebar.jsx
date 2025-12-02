@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
+import { GlobalContext } from '../context/GlobalContext';
 
 const Sidebar = () => {
+
+  const { darkMode, setDarkMode } = useContext(GlobalContext);
+
   return (
     <div className="sidebar bg-light border-end">
       <h4 className="p-3 fw-bold">Libraries</h4>
